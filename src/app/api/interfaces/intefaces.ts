@@ -2,18 +2,24 @@
 
 export interface Response {
     
-        "Attendant": string;
-        "CaseReference": string;
-        "Email": string;
-        "EstimatedMonths": number;
-        "NameProject": string;
+        "id": string;
+        "nombre": string;
+        "apellidoPaterno": string;
+        "apellidoMaterno": number;
+        "ultimoAporte": Date;
+        "primerAporte": Date;
+        "saldo": number;
+        "email": string;
     
 }
 
 export interface proyect {
-    nameProject: string ;
-    fullName: string ;
-    email: string ;
-    caseReference: string ;
-    months: number
+    id: string ;
+    nombre: string ;
+    apellidoPaterno: string;
+    apellidoMaterno: number;
+    ultimoAporte: Date;
+    primerAporte: Date;
+    saldo: number;
+    email: string;
 }

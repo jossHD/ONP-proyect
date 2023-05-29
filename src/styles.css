@@ -4,7 +4,7 @@ body {
   color: #000;
   overflow-x: hidden;
   height: 100%;
-  background-image: url("https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80");
+  background-image: url("../src/assets/background.svg");
   background-repeat: no-repeat;
   background-size:cover;
 }
@@ -15,8 +15,14 @@ body {
   border: none !important;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
 }
+.d-flex{
+  justify-content: center;
+}
 .blue-text {
-  color: #9e208b;
+  color: #618786;
+}
+.white-text {
+  color: #fff;
 }
 .form-control-label {
   margin-bottom: 0;
@@ -37,7 +43,7 @@ textarea:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #d400aa;
+  border: 1px solid #141b4d;
   outline-width: 0;
   font-weight: 400;
 }
@@ -49,7 +55,7 @@ textarea:focus {
   cursor: pointer;
 }
 .btn-block:hover {
-  background-color: #ab157e;
+  background-color: #141b4d;
   color: #fff !important;
 }
 
@@ -59,7 +65,7 @@ textarea:focus {
 }
 
 .btn-primary {
-  background-color: #d32aa1;
+  background-color: #618786;
 }
 
 button:focus {
@@ -76,4 +82,9 @@ button:focus {
 
 .card{
   margin-top: 30px !important;
+}
+
+.logo-onp{
+  width: 25%;
+  margin-bottom: 2rem;
 }

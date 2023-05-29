@@ -1,114 +1,45 @@
 <div class="card">
-  <h5 class="text-center mb-4">Crea un nuevo proyecto</h5>
+  <h5 class="text-center mb-4">Revisar tus aportes declarados en la ONP</h5>
   <form
     class="form-card"
     onsubmit="event.preventDefault()"
-    (ngSubmit)="apiCall()"
     [formGroup]="miFormulario"
+    (ngSubmit)="apiCall()"
   >
-    <div class="row justify-content-between text-left">
-      <div class="form-group col-sm-12 flex-column d-flex">
-        <label class="form-control-label px-3"
-          >Nombre del Proyecto
-          <span class="text-danger"> *</span>
-        </label>
-        <input
-          type="text"
-          id="fname"
-          name="fname"
-          [(ngModel)]="nameProject"
-          formControlName="nameProject"
-          placeholder="Ingrese el nombre del proyecto"
-          onblur="validate(1)"
-        />
-      </div>
-    </div>
-    <div class="row justify-content-between text-left">
-      <div class="form-group col-sm-6 flex-column d-flex">
-        <label class="form-control-label px-3"
-          >Encargado<span class="text-danger"> *</span></label
-        >
-        <input
-          type="text"
-          id="lname"
-          name="lname"
-          placeholder="Ingrese el nombre del encargado"
-          [(ngModel)]="fullName"
-          formControlName="nombre"
-          onblur="validate(2)"
-        />
-      </div>
-      <div class="form-group col-sm-6 flex-column d-flex">
-        <label class="form-control-label px-3"
-          >Email<span class="text-danger"> *</span></label
-        >
-        <input
-          type="email"
-          id="email"
-          name="email"
-          [(ngModel)]="email"
-          formControlName="email"
-          placeholder="Ingrese el correo corporativo"
-          onblur="validate(3)"
-        />
-      </div>
-    </div>
-    <div class="row justify-content-between text-left">
-      <div class="form-group col-sm-6 flex-column d-flex">
-        <label class="form-control-label px-3"
-          >Número de celular<span class="text-danger"> *</span></label
-        >
-        <input
-          type="text"
-          id="mob"
-          name="mob"
-          [(ngModel)]="phone"
-          formControlName="phone"
-          placeholder=""
-          onblur="validate(4)"
-        />
-      </div>
-      <div class="form-group col-6 flex-column d-flex">
-        <label class="form-control-label px-3"
-          >Adjuntar proyecto<span class="text-danger"> *</span></label
-        >
-        <input
-          class="form-control"
-          type="file"
-          accept="application/pdf"
-          (change)="fileEvent($event)"
-          placeholder=""
-        />
-      </div>
-    </div>
-    <div class="row justify-content-between text-left">
-      <div class="form-group col-12 flex-column d-flex">
-        <label class="form-control-label px-3"
-          >Descripción del proyecto<span class="text-danger"> *</span></label
-        >
-        <input
-          type="text"
-          id="job"
-          name="job"
-          [(ngModel)]="description"
-          formControlName="description"
-          placeholder=""
-          onblur="validate(5)"
-        />
-      </div>
 
-    </div>
-    <div class="row justify-content-end">
-      <div class="form-group col-sm-6">
-        <button
-          type="submit"
-          class="btn-block btn-primary"
-          [disabled]="!miFormulario.valid"
-          ng-click="OnClick()"
-        >
-          Crear
-        </button>
+    <div class="row justify-content-between text-left">
+      <div class="form-group col-sm-6 flex-column d-flex">
+        <img src="https://tuzonasegura.onp.gob.pe/auth/assets/images/ONP_img.svg" alt="" srcset="">
       </div>
+      <div class="form-group col-sm-6 flex-column d-flex">
+        <div class="row justify-content-between text-left">
+          <div class="form-group col-sm-12 flex-column d-flex">
+            <label class="form-control-label px-3"
+              >DNI del pensionista<span class="text-danger"> *</span></label
+            >
+            <input
+              type="text"
+              id="mob"
+              name="mob"
+              [(ngModel)]="id"
+              formControlName="id"
+              placeholder=""
+              onblur="validate(4)"
+            />
+          </div>
+          <div class="form-group col-sm-12">
+            <button
+              type="submit"
+              class="btn-block btn-primary"
+              ng-click="OnClick()"
+            >
+              Buscar
+            </button>
+          </div>
+        </div>
+      </div>
+      
     </div>
+    
   </form>
 </div>

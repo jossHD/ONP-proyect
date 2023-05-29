@@ -11,26 +11,15 @@ import { buffer } from 'rxjs';
 })
 export class CreateCasoComponent {
 
-  nombrePatterns: string = '([a-zA-Z]+) ([a-zA-Z]+)';
-
-  miFormulario: FormGroup = this.fb.group({
-    nombre: ['', [ Validators.required, Validators.pattern(this.nombrePatterns) ] ],
-    email: ['', [ Validators.required ] ],
-    nameProject: ['', [ Validators.required ] ],
-    description: ['', [ Validators.required ] ],
-    phone: ['', [ Validators.required ] ],
-  })
-
-  
-  nameProject: string = '';
-  fullName: string = '';
-  email: string = '';
-  description: string = '';
-  phone: string= '';
+  id: string = '';
   filePDF: string = '';
   
 
   constructor( private apiService: ApiService, private fb: FormBuilder){  }
+
+  miFormulario: FormGroup = this.fb.group({
+    id: ['']
+  })
 
   fileEvent(fileInput:any){
       const file = fileInput.target.files[0]
@@ -45,12 +34,10 @@ export class CreateCasoComponent {
 
 
   apiCall(){
-    
-    let phonenumber  = +this.phone;
+    console.log(this.id)
     this.apiService.valid = 2
-    this.apiService.createCase( this.nameProject, this.fullName, this.email, this.description, phonenumber, this.filePDF )
+    this.apiService.createCase(this.id)
     .subscribe(data => {
-      console.log('apiCall response', this.filePDF)
       console.log(data);
     });
 

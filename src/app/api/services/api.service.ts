@@ -9,7 +9,7 @@ import { proyect, Response } from '../interfaces/intefaces';
 })
 export class ApiService {
   private apiURL: string =
-    'https://api-manage-691e5904-gateway-my-cp4i.mycluster-dal12-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/org-provide/qa/Banco_Rosado_API_Lab/InnovationProject';
+    'https://api-manage-143a4eee-gateway-my-cp4i.mycluster-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/dev-01/qa/ONP_Lab/pensionista/';
   proyect!: proyect;
 
   valid: number = 0;
@@ -24,39 +24,25 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  createCase(
-    nameProject: string,
-    name: string,
-    email: string,
-    description: string,
-    phone: number,
-    file: string
-  ): Observable<any> {
+  createCase(idGet: string): Observable<any> {
     const headers = {
-      'X-IBM-Client-Id': 'bacc867489068eb298f4f40abe25e5c4',
-      'content-Type': 'application/json',
+      'X-IBM-Client-Id': '96ccac865ca043186617883556983401',
+      'X-IBM-Client-Secret': 'c354bd00fb253fc65e30045a0722cd15',
       accept: 'application/json',
     };
-    const body = {
-      NameProject: `${nameProject}`,
-      Attendant: `${name}`,
-      Email: `${email}`,
-      DescriptionOfProyect: `${description}`,
-      AttachedFiles: `${file}`,
-      CaseReference: '1',
-      ContactID: '8797123684335616',
-      PhoneNumber: `${phone}`,
-      EstimatedMonths: 91.90195951,
-    };
-    return this.http.post<Response>(this.apiURL, body, { headers }).pipe(
+
+    return this.http.get<Response>(this.apiURL+idGet, { headers }).pipe(
       tap((resp) => {
         this.valid = 1;
         this.proyect = {
-          nameProject: resp.NameProject,
-          fullName: resp.Attendant,
-          email: resp.Email,
-          caseReference: resp.CaseReference,
-          months: resp.EstimatedMonths,
+          id: resp.id,
+          nombre: resp.nombre,
+          apellidoPaterno: resp.apellidoPaterno,
+          apellidoMaterno: resp.apellidoMaterno,
+          ultimoAporte: resp.ultimoAporte,
+          primerAporte: resp.primerAporte,
+          saldo: resp.saldo,
+          email: resp.email,
         };
       })
     );
